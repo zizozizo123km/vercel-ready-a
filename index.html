@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Facebook - تسجيل الدخول أو الاشتراك</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://static.xx.fbcdn.net/rsrc.php/yb/r/hBNW3B68qU7.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .content {
+            display: flex;
+            width: 100%;
+            max-width: 980px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .left-side {
+            width: 50%;
+            padding-right: 30px;
+            text-align: right; /* Adjust alignment for RTL (Arabic) */
+        }
+
+        .left-side img {
+            height: 106px;
+            margin-bottom: -10px;
+            display: block;
+            margin-right: auto;
+            margin-left: 0; /* Adjust for RTL */
+        }
+
+        .left-side h2 {
+            font-size: 28px;
+            font-weight: normal;
+            line-height: 32px;
+            color: #1c1e21;
+        }
+
+        .right-side {
+            width: 40%;
+            min-width: 396px;
+        }
+
+        .form-box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+            text-align: center;
+        }
+
+        .form-box input[type="text"],
+        .form-box input[type="password"] {
+            width: 100%;
+            padding: 14px 16px;
+            margin-bottom: 15px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            font-size: 17px;
+            direction: rtl; /* Ensure input text is aligned right for Arabic */
+        }
+
+        .form-box input:focus {
+            outline: none;
+            border-color: #1877f2;
+            box-shadow: 0 0 0 1px #1877f2;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 14px 16px;
+            background-color: #1877f2;
+            border: none;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-login:hover {
+            background-color: #166fe5;
+        }
+
+        .forgot-password {
+            display: block;
+            margin-top: 15px;
+            color: #1877f2;
+            text-decoration: none;
+            font-size: 14px;
+            transition: text-decoration 0.3s;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            border-bottom: 1px solid #dadde1;
+            margin: 20px 0;
+        }
+
+        .btn-create-account {
+            padding: 12px 16px;
+            background-color: #42b72a;
+            border: none;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-create-account:hover {
+            background-color: #36a420;
+        }
+
+        .create-page-link {
+            font-size: 14px;
+            margin-top: 28px;
+            text-align: center;
+        }
+
+        .create-page-link a {
+            font-weight: bold;
+            color: #1c1e21;
+            text-decoration: none;
+        }
+
+        .create-page-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: #fff;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        .footer-content {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-size: 12px;
+            color: #737373;
+            direction: rtl; /* RTL for Arabic content */
+            text-align: right;
+        }
+
+        .languages ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #dadde1;
+            margin-bottom: 8px;
+        }
+
+        .languages ul li {
+            margin-left: 10px; /* Adjusted margin for RTL */
+        }
+        
+        .languages ul li:first-child {
+            margin-left: 0;
+        }
+
+        .languages ul li a {
+            text-decoration: none;
+            color: #8a8d91;
+            padding: 0 3px;
+        }
+
+        .languages ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .languages ul li .active-lang {
+            color: #737373;
+            font-weight: bold;
+        }
+
+        .languages ul li .add-button {
+            background: none;
+            border: 1px solid #ccd0d5;
+            color: #4b4f56;
+            padding: 0 8px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        .links ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .links ul li {
+            margin-right: 20px; /* Adjusted margin for RTL */
+            line-height: 1.6;
+        }
+        
+        .links ul li:last-child {
+            margin-right: 0;
+        }
+
+        .links ul li a {
+            text-decoration: none;
+            color: #8a8d91;
+        }
+
+        .links ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 10px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 980px) {
+            .content {
+                flex-direction: column;
+                padding-top: 50px;
+            }
+
+            .left-side, .right-side {
+                width: 100%;
+                padding: 0;
+                text-align: center;
+            }
+
+            .left-side {
+                margin-bottom: 40px;
+            }
+
+            .left-side img {
+                margin: 0 auto 10px auto; /* Center image on small screens */
+            }
+
+            .right-side {
+                min-width: unset;
+                max-width: 400px;
+            }
+
+            .footer {
+                margin-top: 50px;
+            }
+        }
+    </style>
+</head>
+<body dir="rtl"> <!-- Set direction to RTL for the entire body -->
+
+    <div class="container">
+        <div class="content">
+            <div class="left-side">
+                <img src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3S-BG.svg" alt="Facebook Logo">
+                <h2>يساعدك فيسبوك على التواصل مع الأشخاص ومشاركة ما تريد معهم في حياتك.</h2>
+            </div>
+            <div class="right-side">
+                <div class="form-box">
+                    <form action="#" method="post">
+                        <input type="text" placeholder="البريد الإلكتروني أو رقم الهاتف" required>
+                        <input type="password" placeholder="كلمة السر" required>
+                        <button type="submit" class="btn-login">تسجيل الدخول</button>
+                    </form>
+                    <a href="#" class="forgot-password">هل نسيت كلمة السر؟</a>
+                    <div class="divider"></div>
+                    <button type="button" class="btn-create-account">إنشاء حساب جديد</button>
+                </div>
+                <p class="create-page-link">
+                    <a href="#">إنشاء صفحة</a>
+                     لأحد المشاهير أو الفرق الموسيقية أو الشركات.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="languages">
+                <ul>
+                    <li><span class="active-lang">العربية</span></li>
+                    <li><a href="#">English</a></li>
+                    <li><a href="#">Français</a></li>
+                    <li><a href="#">Español</a></li>
+                    <li><a href="#">Deutsch</a></li>
+                    <li><a href="#">Italiano</a></li>
+                    <li><a href="#">Português (Brasil)</a></li>
+                    <li><a href="#">اردو</a></li>
+                    <li><a href="#">Türkçe</a></li>
+                    <li><a href="#">हिन्दी</a></li>
+                    <li><a href="#">中文(简体)</a></li>
+                    <li><button class="add-button">+</button></li>
+                </ul>
+            </div>
+            <div class="links">
+                <ul>
+                    <li><a href="#">تسجيل</a></li>
+                    <li><a href="#">تسجيل الدخول</a></li>
+                    <li><a href="#">ماسنجر</a></li>
+                    <li><a href="#">فيسبوك لايت</a></li>
+                    <li><a href="#">فيديو</a></li>
+                    <li><a href="#">الأماكن</a></li>
+                    <li><a href="#">الألعاب</a></li>
+                    <li><a href="#">ماركت بليس</a></li>
+                    <li><a href="#">Meta Pay</a></li>
+                    <li><a href="#">متجر Meta</a></li>
+                    <li><a href="#">Meta Quest</a></li>
+                    <li><a href="#">انستجرام</a></li>
+                    <li><a href="#">ثريدز</a></li>
+                    <li><a href="#">التبرعات</a></li>
+                    <li><a href="#">الخدمات</a></li>
+                    <li><a href="#">مركز المعلومات</a></li>
+                    <li><a href="#">الخصوصية</a></li>
+                    <li><a href="#">مركز الخصوصية</a></li>
+                    <li><a href="#">المجموعات</a></li>
+                    <li><a href="#">حول</a></li>
+                    <li><a href="#">إنشاء إعلان</a></li>
+                    <li><a href="#">إنشاء صفحة</a></li>
+                    <li><a href="#">المطورون</a></li>
+                    <li><a href="#">الوظائف</a></li>
+                    <li><a href="#">ملفات تعريف الارتباط</a></li>
+                    <li><a href="#">اختيارات الإعلانات</a></li>
+                    <li><a href="#">الشروط</a></li>
+                    <li><a href="#">المساعدة</a></li>
+                    <li><a href="#">تحميل جهات الاتصال وغير المستخدمين</a></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <span>Meta &copy; 2024</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
