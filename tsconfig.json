@@ -1,0 +1,48 @@
+This configuration is optimized for a modern web application project (like a Facebook/React-style app), prioritizing strictness, modern module standards, and inclusion of both browser (`DOM`) and latest ECMAScript features (`ESNext`).
+
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    // --- Project Structure & Output ---
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "sourceMap": true,
+    "composite": true,
+    "declaration": true,
+    
+    // --- Type Libraries (Mandatory Request) ---
+    "lib": ["ESNext", "DOM"],
+
+    // --- Strictness & Quality ---
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    
+    // --- Front-end / JSX Settings (Assuming React/UI project) ---
+    "jsx": "react-jsx",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    
+    // --- Path Management (Optional but Recommended for complex projects) ---
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["./*"] 
+    }
+  },
+
+  // --- File Inclusion ---
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"],
+  "exclude": ["node_modules", "dist", "build"],
+
+  // --- Project References (Mandatory Request: Linking Node config) ---
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}
