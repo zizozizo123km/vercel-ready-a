@@ -1,0 +1,18 @@
+{
+  "name": "facebook-app",
+  "version": "1.0.0",
+  "description": "تطبيق فيسبوك",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "facebook",
+    "social media",
+    "تطبيق"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}
