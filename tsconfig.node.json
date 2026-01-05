@@ -1,0 +1,25 @@
+This configuration is designed to be a minimal valid Node-specific TypeScript configuration (`tsconfig.node.json`) suitable for modern Vite projects, primarily targeting configuration files, build scripts, or server-side utility code.
+
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    // Enable project references for faster builds and better dependency tracking.
+    "composite": true,
+    // Use the modern Node module system resolution (essential for modern Vite/TS).
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    // Target a recent stable ES version supported by modern Node runtimes.
+    "target": "ES2022",
+    // Explicitly include Node types, excluding DOM types inherited from the base config.
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    // Ensure that the Vite configuration file itself is compiled using these Node settings.
+    "vite.config.ts"
+    // If you have other server or build-related scripts, add them here:
+    // "scripts/**/*.ts",
+    // "server/**/*.ts"
+  ]
+}
